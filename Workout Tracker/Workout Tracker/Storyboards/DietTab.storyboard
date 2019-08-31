@@ -30,7 +30,7 @@
         <scene sceneID="QxU-a7-nPe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FOw-3E-XIg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Diet" id="XpJ-cT-KzL"/>
+                    <tabBarItem key="tabBarItem" title="Diet" image="diet" id="XpJ-cT-KzL"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="g9P-P9-Wax">
@@ -47,4 +47,7 @@
             <point key="canvasLocation" x="166.66666666666669" y="123.88392857142857"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="diet" width="30" height="30"/>
+    </resources>
 </document>

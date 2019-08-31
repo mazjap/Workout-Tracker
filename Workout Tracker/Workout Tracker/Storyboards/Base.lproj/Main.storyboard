@@ -13,7 +13,7 @@
         <!--Home-->
         <scene sceneID="z82-7u-OGk">
             <objects>
-                <viewController id="2vV-jk-oLd" sceneMemberID="viewController">
+                <viewController id="2vV-jk-oLd" customClass="HomeViewController" customModule="Workout_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N2o-SY-YBY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,7 +49,7 @@
         <scene sceneID="N5w-yI-Hz5">
             <objects>
                 <viewControllerPlaceholder storyboardName="WorkoutsTab" id="Gvn-y1-qWm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Workouts" id="JKr-T0-E7y"/>
+                    <tabBarItem key="tabBarItem" title="Workouts" image="dumbbell" id="JKr-T0-E7y"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OOW-A5-z6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -59,7 +59,7 @@
         <scene sceneID="a5u-Z5-Fes">
             <objects>
                 <viewControllerPlaceholder storyboardName="DietTab" id="jWj-fn-7RG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Diet" id="7Vc-jN-hq3"/>
+                    <tabBarItem key="tabBarItem" title="Diet" image="diet" id="7Vc-jN-hq3"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8w4-Mk-c8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -69,7 +69,7 @@
         <scene sceneID="IaO-vh-z55">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vgE-Dk-ra2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="BcK-vC-1iB"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" id="BcK-vC-1iB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="994-lz-dOI">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -85,4 +85,9 @@
             <point key="canvasLocation" x="171" y="-1349"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="diet" width="30" height="30"/>
+        <image name="dumbbell" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="home" width="32" height="32"/>
+    </resources>
 </document>
