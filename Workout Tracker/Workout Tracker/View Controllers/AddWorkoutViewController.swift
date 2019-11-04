@@ -12,7 +12,9 @@ class AddWorkoutViewController: UIViewController {
     
     var workoutController: WorkoutController?
     
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet private weak var nameTextField: UITextField!
+    @IBOutlet private weak var isCompleteSwift: UISwitch!
+    @IBOutlet private weak var dateCompletedDatePicker: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +25,7 @@ class AddWorkoutViewController: UIViewController {
     @IBAction func saveTapped(_ sender: UIBarButtonItem) {
         if let workoutController = workoutController,
             let name = nameTextField.text {
-            // workoutController.addWorkout(name, exercises, date, isCompleted)
+//            workoutController.addWorkout(name, exercises, date, isCompleted)
             dismiss(animated: true, completion: nil)
         }
     }

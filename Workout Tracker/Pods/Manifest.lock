@@ -1,0 +1,31 @@
+PODS:
+  - Sentry (4.4.1):
+    - Sentry/Core (= 4.4.1)
+  - Sentry/Core (4.4.1)
+  - SwiftLint (0.35.0)
+
+DEPENDENCIES:
+  - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `4.4.1`)
+  - SwiftLint
+
+SPEC REPOS:
+  trunk:
+    - SwiftLint
+
+EXTERNAL SOURCES:
+  Sentry:
+    :git: https://github.com/getsentry/sentry-cocoa.git
+    :tag: 4.4.1
+
+CHECKOUT OPTIONS:
+  Sentry:
+    :git: https://github.com/getsentry/sentry-cocoa.git
+    :tag: 4.4.1
+
+SPEC CHECKSUMS:
+  Sentry: 5d312a04e369154aeac616214f4dfc3cbcc8b296
+  SwiftLint: 5553187048b900c91aa03552807681bb6b027846
+
+PODFILE CHECKSUM: 9b7271915e716644d024a96dad8c64e261440c9b
+
+COCOAPODS: 1.8.3

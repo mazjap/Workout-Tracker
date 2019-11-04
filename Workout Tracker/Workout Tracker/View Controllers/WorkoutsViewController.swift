@@ -7,12 +7,32 @@
 //
 
 import UIKit
+import CoreData
 
-class WorkoutsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class WorkoutsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
     
     let workoutController = WorkoutController()
     
-    @IBOutlet weak var tableView: UITableView!
+    lazy var fetchedResultsController: NSFetchedResultsController<Workout> = {
+        let fetchRequest: NSFetchRequest<Workout> = Workout.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "isComplete", ascending: false),
+                                        NSSortDescriptor(key: "date", ascending: false)]
+        
+        let moc = CoreDataStack.shared.mainContext
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "isComplete", cacheName: nil)
+        
+        frc.delegate = self
+        
+        do {
+            try frc.performFetch()
+        } catch {
+            NSLog("Error fetching objects: \(error)")
+        }
+        
+        return frc
+    }()
+    
+    @IBOutlet private weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,47 +40,25 @@ class WorkoutsViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.dataSource = self
         tableView.delegate = self
 
-        // Do any additional setup after loading the view.
+        self.tableView.rowHeight = 100.0
     }
     
-    
-    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return fetchedResultsController.sections?.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return workoutController.complete.count
-            
-        case 1:
-            return workoutController.uncomplete.count
-            
-        default:
-            return 0
-        }
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutCell", for: indexPath) as? WorkoutTableViewCell else { return UITableViewCell() }
         
-        switch indexPath.section {
-        case 0:
-            cell.workout = workoutController.complete[indexPath.row]
-            
-        case 1:
-            cell.workout = workoutController.uncomplete[indexPath.row]
-            
-        default:
-            cell.workout = workoutController.workouts[indexPath.row]
-        }
-        
+        cell.workout = fetchedResultsController.object(at: indexPath)
         
         return cell
     }
     
-
     /*
     // MARK: - Navigation
 
